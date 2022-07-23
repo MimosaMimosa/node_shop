@@ -19,6 +19,11 @@ app.use(fileuplodad());
 
 app.use(express.json());
 
+app.all('/api/*', (req, res, next) => {
+    console.log(req.body);
+    next();
+});
+
 app.use('/api/categories', categories);
 app.use('/api/subcategories', subcategories);
 
