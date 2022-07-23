@@ -2,6 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const fileuplodad = require('express-fileupload');
 const { connectDb } = require('./database/database');
+const categories = require('./router/category');
 
 const app = express();
 
@@ -16,6 +17,8 @@ connectDb((error) => {
 app.use(fileuplodad());
 
 app.use(express.json());
+
+app.use('/api/categories', categories);
 
 app.use('*', (req, res, next) => {
     res.status(404).json({ message: 'Not Found!' });
