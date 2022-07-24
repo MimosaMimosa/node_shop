@@ -1,9 +1,4 @@
 ## Installation
-
-```
-mkdir db
-```
-
 ```
 docker compose up -d
 ```
